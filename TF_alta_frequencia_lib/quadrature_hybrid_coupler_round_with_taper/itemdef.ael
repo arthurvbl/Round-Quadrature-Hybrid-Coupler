@@ -1,0 +1,8 @@
+create_item("quadrature_hybrid_coupler_round_with_taper","quadrature_hybrid_coupler_round_with_taper","X",16,-1,NULL,"Component Parameters",NULL,"%43?global %;%d:%t %# %44?0%:%31?%C%:_net%c%;%;%e %b%r%8?%29?%:%30?%p %:%k%?[%1i]%;=%p %;%;%;%e%e","quadrature_hybrid_coupler_round_with_taper","%t%b%r%38?%:\n%30?%s%:%k%?[%1i]%;=%s%;%;%e%e%;","",3,NULL,0,
+create_parm("Lqw_EM","Subnetwork 62.82",66560,"StdFormSet",-1,prm("StdForm","62.82 ")),
+create_parm("Wqw_EM","Subnetwork 1.857",66560,"StdFormSet",-1,prm("StdForm","1.857 ")),
+create_parm("Z0_EM","Subnetwork 50",66560,"StdFormSet",-1,prm("StdForm","50 ")),
+create_parm("W0_EM","Subnetwork 1.088",66560,"StdFormSet",-1,prm("StdForm","1.088 ")),
+create_parm("L0_EM","Subnetwork 8.362",66560,"StdFormSet",-1,prm("StdForm","8.362 ")),
+create_parm("Rcurve_EM","Subnetwork 9.998",66560,"StdFormSet",-1,prm("StdForm","9.998 ")),
+create_parm("Ltaper_EM","Subnetwork 1",66560,"StdFormSet",-1,prm("StdForm","1 ")));

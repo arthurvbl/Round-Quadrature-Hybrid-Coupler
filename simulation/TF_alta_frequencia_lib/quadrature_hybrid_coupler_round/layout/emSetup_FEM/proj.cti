@@ -1,0 +1,167 @@
+CITIFILE A.01.01
+
+# FEM  : 390.000 2020-08-05
+# Date : Thu Jun  4 17:21:14 2026
+
+NAME DATA
+
+#eesof Port[1] P1
+#eesof Port[2] P2
+#eesof Port[3] P3
+#eesof Port[4] P4
+
+VAR freq MAG 1
+
+DATA S[1,1] RI
+DATA S[1,2] RI
+DATA S[1,3] RI
+DATA S[1,4] RI
+DATA S[2,1] RI
+DATA S[2,2] RI
+DATA S[2,3] RI
+DATA S[2,4] RI
+DATA S[3,1] RI
+DATA S[3,2] RI
+DATA S[3,3] RI
+DATA S[3,4] RI
+DATA S[4,1] RI
+DATA S[4,2] RI
+DATA S[4,3] RI
+DATA S[4,4] RI
+DATA GAMMA[1] RI
+DATA GAMMA[2] RI
+DATA GAMMA[3] RI
+DATA GAMMA[4] RI
+DATA PORTZ[1] RI
+DATA PORTZ[2] RI
+DATA PORTZ[3] RI
+DATA PORTZ[4] RI
+DATA Zpi[1] RI
+DATA Zpi[2] RI
+DATA Zpi[3] RI
+DATA Zpi[4] RI
+DATA Zpv[1] RI
+DATA Zpv[2] RI
+DATA Zpv[3] RI
+DATA Zpv[4] RI
+DATA Zvi[1] RI
+DATA Zvi[2] RI
+DATA Zvi[3] RI
+DATA Zvi[4] RI
+
+VAR_LIST_BEGIN
+             3750000000
+VAR_LIST_END
+
+BEGIN
+    0.21437712937119249,     0.53640437796835805
+END
+BEGIN
+   0.003848578589504722,     0.42343012892688187
+END
+BEGIN
+    0.25867103717691131,    -0.43552678146162016
+END
+BEGIN
+   -0.16518038063214441,     0.41897737287286491
+END
+BEGIN
+   0.003848578589504722,     0.42343012892688187
+END
+BEGIN
+    0.22345523653904512,     0.53317164546067075
+END
+BEGIN
+   -0.16031852517569445,     0.41906354559101699
+END
+BEGIN
+    0.25571620624226643,    -0.43835983332943368
+END
+BEGIN
+    0.25867103717691131,    -0.43552678146162016
+END
+BEGIN
+   -0.16031852517569445,     0.41906354559101699
+END
+BEGIN
+    0.20640275922189716,      0.5346988568657941
+END
+BEGIN
+  -0.013471695523955786,     0.43120337609311093
+END
+BEGIN
+   -0.16518038063214441,     0.41897737287286491
+END
+BEGIN
+    0.25571620624226643,    -0.43835983332943368
+END
+BEGIN
+  -0.013471695523955786,     0.43120337609311093
+END
+BEGIN
+    0.20502542809010882,     0.53261065581233569
+END
+BEGIN
+                      0,                       0
+END
+BEGIN
+                      0,                       0
+END
+BEGIN
+                      0,                       0
+END
+BEGIN
+                      0,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+BEGIN
+                     50,                       0
+END
+#RENORMALIZED IMPEDANCE (50.000000,0.000000) OHMS WRT ZPI FOR EXCITATION 1
+#RENORMALIZED IMPEDANCE (50.000000,0.000000) OHMS WRT ZPI FOR EXCITATION 2
+#RENORMALIZED IMPEDANCE (50.000000,0.000000) OHMS WRT ZPI FOR EXCITATION 3
+#RENORMALIZED IMPEDANCE (50.000000,0.000000) OHMS WRT ZPI FOR EXCITATION 4

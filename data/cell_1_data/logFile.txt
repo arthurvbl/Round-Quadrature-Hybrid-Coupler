@@ -1,0 +1,43 @@
+
+hpeesofsim (*) 530.shp Aug 11 2020, MINT version 5
+    (64-bit windows built: Wed Aug 12, 2020 02:42:05 +0000)
+
+
+CT Sweep1[1] <TF_alta_frequencia_lib:cell_1:schematic>   Lqw=(60->65)
+
+SP Sweep1[1].SP1[1/11] <TF_alta_frequencia_lib:cell_1:schematic>  Lqw=60  freq=(750 MHz->3.75 GHz)
+
+
+SP Sweep1[1].SP1[2/11] <TF_alta_frequencia_lib:cell_1:schematic>  Lqw=60.5  freq=(750 MHz->3.75 GHz)
+
+
+SP Sweep1[1].SP1[3/11] <TF_alta_frequencia_lib:cell_1:schematic>  Lqw=61  freq=(750 MHz->3.75 GHz)
+
+
+SP Sweep1[1].SP1[4/11] <TF_alta_frequencia_lib:cell_1:schematic>  Lqw=61.5  freq=(750 MHz->3.75 GHz)
+
+
+SP Sweep1[1].SP1[5/11] <TF_alta_frequencia_lib:cell_1:schematic>  Lqw=62  freq=(750 MHz->3.75 GHz)
+
+
+SP Sweep1[1].SP1[6/11] <TF_alta_frequencia_lib:cell_1:schematic>  Lqw=62.5  freq=(750 MHz->3.75 GHz)
+
+
+SP Sweep1[1].SP1[7/11] <TF_alta_frequencia_lib:cell_1:schematic>  Lqw=63  freq=(750 MHz->3.75 GHz)
+
+
+SP Sweep1[1].SP1[8/11] <TF_alta_frequencia_lib:cell_1:schematic>  Lqw=63.5  freq=(750 MHz->3.75 GHz)
+
+
+SP Sweep1[1].SP1[9/11] <TF_alta_frequencia_lib:cell_1:schematic>  Lqw=64  freq=(750 MHz->3.75 GHz)
+
+
+SP Sweep1[1].SP1[10/11] <TF_alta_frequencia_lib:cell_1:schematic>  Lqw=64.5  freq=(750 MHz->3.75 GHz)
+
+
+SP Sweep1[1].SP1[11/11] <TF_alta_frequencia_lib:cell_1:schematic>  Lqw=65  freq=(750 MHz->3.75 GHz)
+
+
+Resource usage:
+  Total stopwatch time     =   172.16 seconds.
+

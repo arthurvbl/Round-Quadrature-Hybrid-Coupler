@@ -1,0 +1,33 @@
+Momentum Server logfile: momServer.log
+
+EM Model generation from "TF_alta_frequencia_lib:quadrature_hybrid_coupler_round:emModel"
+  parameterNames = list("Lqw_EM","Wqw_EM","Z0_EM","W0_EM","L0_EM","Rcurve_EM","Ltaper_EM","Substrate","MeshDensity")
+  parameterValues = list("65.00000000000001","1.8566","50.00000000000001","1.0878","8.361860000000002","10.34507","1","definedInState","20")
+  topLevel design name = "TF_alta_frequencia_lib:cell_1:schematic"
+  instance name = "X1.em_data"
+  processID = "50458@127.0.0.1:hpeesofsim:_unique50270_4"
+  visible = TRUE
+Connected to external process by processID
+..handle = 17
+..pid = 50458@127.0.0.1:hpeesofsim:_unique50270_4
+..name = hpeesofsim
+Creating work design TF_alta_frequencia_lib:quadrature_hybrid_coupler_round:layout_hpeesofsim
+..new work design opened
+..inserting instance of TF_alta_frequencia_lib:quadrature_hybrid_coupler_round:layout
+..promoting instance pins and ports
+Successfully created the work design
+Successfully created the associated schematic of the work design
+Starting EM simulation for design: TF_alta_frequencia_lib:quadrature_hybrid_coupler_round:layout_hpeesofsim
+  Contains instance of : TF_alta_frequencia_lib:quadrature_hybrid_coupler_round:layout
+  EM setup view name   : emSetup_hpeesofsim
+  EM model design name   : TF_alta_frequencia_lib:quadrature_hybrid_coupler_round:emModel
+..disable simulation log popup
+..simulation M260604181727 started
+..simulation M260604181727 ended
+EM simulation finished successfully
+..adding new data to EM model view: Success Added simulation data.
+..deleting layout_hpeesofsim view for work design
+..deleting schematic_hpeesofsim view for work design
+..deleting emSetup_hpeesofsim view for work design
+..deleting simulation directory for work design
+..sending DONE to parent

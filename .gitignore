@@ -1,0 +1,9 @@
+# Keysight ADS Ignored Files
+*.ds        # Simulation datasets (very large)
+*.log       # Log files
+*.lck       # Lock files
+*.oa.* # OpenAccess temporary files
+simulation/ # Simulation working directories
+mom_dsn/    # Momentum simulation data
+data/       # General data output
+history/    # Auto-saved history
