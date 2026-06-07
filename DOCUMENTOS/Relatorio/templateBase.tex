@@ -1,0 +1,173 @@
+\documentclass[article, oneside, oldfontcommands]{abntex2}
+
+\usepackage[alf]{abntex2cite}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath} % Removido o fullpage para não dar conflito com o geometry
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[normalem]{ulem}
+% \usepackage{fancyhdr} % Comentado para evitar conflito com abntex2
+\usepackage[top=3.0cm, left=3cm, bottom=2cm, right=2cm, headheight=75pt]{geometry} 
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{booktabs} 
+\usepackage{siunitx}  
+% \usepackage{titlesec} % Comentado para evitar conflito com abntex2
+\usepackage{subcaption} % Pacote essencial para subfiguras
+
+% --- Configurações ABNT (Fonte e Espaçamento) ---
+\usepackage{helvet} 
+\renewcommand{\familydefault}{\sfdefault} 
+\OnehalfSpacing % <-- Comando nativo para espaçamento 1.5 no texto
+% ------------------------------------------------
+
+\newcommand{\uvec}[1]{\boldsymbol{\hat{\textit{#1}}}}
+\setlength{\parindent}{1.25cm} 
+
+\graphicspath{{image/}}
+
+\begin{document}
+
+% --- INÍCIO DA CAPA ---
+\thispagestyle{empty} % Remove o número da página apenas desta folha
+\begingroup % Inicia um grupo para o espaçamento não vazar pro resto do texto
+
+% Cabeçalho da Capa (Texto à esquerda e Logo à direita alinhados por baixo)
+\noindent
+\begin{minipage}[b]{0.7\textwidth}
+    \small
+    \textbf{Matéria:} TÓPICOS - ENGENHARIA DE CIRCUITOS IMPRESSOS\\[0.1cm]
+    \textbf{Professor:} SEBASTIEN ROLAND MARIE JOSEPH RONDINEAU
+\end{minipage}%
+\begin{minipage}[b]{0.3\textwidth}
+    \raggedleft
+    \includegraphics[width=2.5cm]{unb_logo.png}
+\end{minipage}
+
+\vspace{0.15cm} 
+\noindent\rule{\textwidth}{0.4pt} 
+
+\vfill 
+
+\begin{center}
+    {\huge \textbf{Quadrature Hybrid Coupler Circular}}\\[0.5cm]
+    {\Large Trabalho Final da Disciplina}
+\end{center}
+
+\vfill 
+
+\begin{center}
+    {Gustavo Emmanuel dos Santos Rodrigues} - 232036878 \\
+    {Arthur Vilas Boas Laterza} - 232037374 \\
+    \vspace{0.5cm}
+    \today
+\end{center}
+
+\endgroup
+% --- FIM DA CAPA ---
+
+\newpage
+\clearpage
+\pagenumbering{arabic} % Começa a contagem de páginas após a capa
+
+\section{Resumo}
+
+Este documento trata de uma apresentação de um trabalho final para a disciplina de Engenharia de Circuitos Impressos, focado no desenvolvimento e análise de um \textit{Quadrature Hybrid Coupler}, projetado em formato circular e a uma frequência de 2.4 GHz. O trabalho abrange a concepção, simulação e avaliação do desempenho do dispositivo, destacando suas aplicações práticas e relevância no campo da engenharia. 
+
+
+\section{Objetivos}
+
+Tem-se como objetivo aprender com a prática o conteúdo previsto na ementa da disciplina, desenvolvendo uma placa de circuito impresso que implementa a funcionalidade proposta, um componente aplicável em sistemas de micro-ondas e comunicações. Também se busca aprimorar habilidades em simulação, análise de desempenho e compreensão dos princípios de funcionamento de circuitos impressos, contribuindo para a formação técnica e profissional dos integrantes.
+
+\section{Introdução}
+
+O acoplador híbrido em quadratura consolida-se como um componente fundamental em circuitos de micro-ondas. Este dispositivo passivo de quatro portas tem como função principal dividir ou combinar sinais de potência, garantindo uma defasagem exata de 90 graus entre as suas portas de saída. Devido à sua capacidade de fornecer alta isolação e acoplamento eficiente com perdas mínimas, ele é amplamente empregado em blocos críticos de sistemas modernos, incluindo redes de alimentação de antenas, moduladores I/Q, misturadores balanceados e sistemas de radar.
+
+Estruturalmente, o acoplador em quadratura é composto por quatro braços de linhas de transmissão com comprimentos de um quarto de onda ($\lambda/4$), frequentemente fabricados utilizando tecnologias planas, como microstrip ou stripline. Em sua topologia retangular clássica (como ilustrado na Figura \ref{fig:sub_retangular}), o sinal injetado na porta de entrada é dividido equitativamente (3 dB) entre a porta direta e a porta acoplada, enquanto a quarta porta permanece isolada. No entanto, este projeto propõe o desenvolvimento e a análise de uma versão deste modelo implementada no modo circular (Figura \ref{fig:sub_circular}).
+
+\begin{figure}[H]
+    \centering
+    % Primeira subfigura (a)
+    \begin{subfigure}[b]{0.65\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{quadrada.png}
+        \caption{Topologia retangular clássica}
+        \label{fig:sub_retangular}
+    \end{subfigure}\hfill
+    % Segunda subfigura (b)
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{referencia.png} % Ajustei para 0.8 para ficar mais legível, mas pode voltar para 0.45 se preferir
+        \caption{Topologia circular proposta}
+        \label{fig:sub_circular}
+    \end{subfigure}
+    
+    \caption{Comparativo das topologias do Quadrature Hybrid Coupler}
+    \label{fig:calculadora1}
+\end{figure}
+
+Diferentemente da topologia convencional de ramos retos, a implementação do híbrido em quadratura na geometria circular visa mitigar as descontinuidades eletromagnéticas inerentes às quinas de 90 graus. Em circuitos de alta frequência, tais ângulos retos introduzem indutâncias e capacitâncias parasitas significativas que podem degradar a largura de banda, alterar a frequência de ressonância e comprometer a isolação entre as portas. A adoção de uma estrutura circular promove uma transição de impedância geométrica mais suave e contínua, otimizando a distribuição das linhas de campo elétrico e magnético ao longo dos ramos de acoplamento. \\
+
+\noindent \cite{pozar2011microwave} \cite{sinchangreed2011design} \cite{stec2018quadrature} \cite{rahman2018quadrature} \cite{zeng2022compact} \cite{grebennikov2008power}
+
+\section{Metodologia}
+
+A metodologia adotada para o desenvolvimento deste projeto divide-se em quatro etapas sequenciais: fundamentação teórica, projeto e simulação eletromagnética, prototipagem da placa de circuito impresso (PCB) e, por fim, a validação experimental no laboratório.
+
+Inicialmente, será realizado um estudo aprofundado para a compreensão teórica dos fenômenos de alta frequência abordados na ementa. 
+Esta etapa contemplará a análise matemática do \textit{Quadrature Hybrid Coupler} em sua topologia circular, aplicando-se a Análise de Modos Par e Ímpar (\textit{Even-Odd Mode Analysis}) para o equacionamento analítico do dispositivo. Esse estudo culminará no desenvolvimento da Matriz de Espalhamento ($[S]$), que servirá como modelo ideal para a caracterização do funcionamento do circuito.
+
+Para a fase de dimensionamento físico e sintonia, serão utilizadas as ferramentas de simulação do \textit{software Keysight Advanced Design System (ADS)}. O procedimento iniciará com simulações no nível esquemático utilizando modelos ideais de linhas de transmissão, evoluindo progressivamente para a modelagem em tecnologia de microfita. 
+Nesta transição, serão inseridas as propriedades físicas reais do substrato dielétrico a ser utilizado na fabricação (como constante dielétrica $\varepsilon_r$, tangente de perdas $\tan \delta$ e espessura da placa). 
+
+Com o \textit{layout} gerado, será executada a simulação eletromagnética (EM) no ADS para computar os efeitos parasitas e as descontinuidades geométricas das trilhas e curvas. O foco desta etapa será a otimização paramétrica para garantir que os indicadores de desempenho, como o casamento de impedância ($S_{11}$), o acoplamento com divisão de potência equitativa ($S_{21}$ e $S_{31}$), a isolação entre portas ($S_{41}$) e o desfasamento exato de 90 graus, atendam às especificações dentro da largura de banda de operação desejada.
+
+Por fim, o \textit{layout} otimizado será encaminhado para a fabricação. A validação do projeto ocorrerá por meio da caracterização experimental do protótipo físico utilizando um Analisador de Rede Vetorial (VNA). Os parâmetros S medidos na bancada serão confrontados diretamente com os dados extraídos das simulações computacionais e com os limites estabelecidos pela literatura teórica, permitindo uma análise crítica das métricas alcançadas e das eventuais não idealidades inerentes ao processo de fabricação. 
+
+\section{Cronograma}
+
+A Tabela \ref{tab:cronograma} apresenta as etapas do projeto distribuídas ao longo das doze semanas estipuladas para a conclusão do trabalho final.
+
+\begin{table}[H]
+    \centering
+    \caption{Cronograma de atividades do projeto (12 semanas)}
+    \label{tab:cronograma}
+    \vspace{0.3cm}
+    \renewcommand{\arraystretch}{1.3}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l c c c c c c c c c c c c}
+        \toprule
+        \textbf{Atividades} & \textbf{S1} & \textbf{S2} & \textbf{S3} & \textbf{S4} & \textbf{S5} & \textbf{S6} & \textbf{S7} & \textbf{S8} & \textbf{S9} & \textbf{S10} & \textbf{S11} & \textbf{S12} \\
+        \midrule
+        Revisão Bibliográfica teórica           & X & X &   &   &   &   &   &   &   &   &   &   \\
+        Cálculo analítico dos parâmetros        &   & X & X & X & X &   &   &   &   &   &   &   \\
+        Simulação eletromagnética               &   &   &   & X & X & X & X & X &   &   &   &   \\
+        Construção / Prototipagem               &   &   &   &   & X & X & X & X & X &   &   &   \\
+        Otimização e ajustes no layout          &   &   &   &   &   &   & X & X & X & X &   &   \\
+        Medição experimental em laboratório     &   &   &   &   &   &   &   &   & X & X & X &   \\
+        Análise de dados e escrita do relatório &   &   &   &   &   &   &   &   &   & X & X & X \\
+        \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+\section{Resultados esperados}
+
+Para um Acoplador Híbrido de Quadratura (que geralmente tem 4 portas), os resultados esperados giram em torno do comportamento ideal dos Parâmetros S (Espalhamento) na frequência central de operação do projeto. É esperado que seja concluído os tópicos:
+
+\begin{itemize}
+    \item \textbf{Divisão de Potência (Insertion Loss)}: Espera-se que o sinal de entrada (Porta 1) seja dividido igualmente entre as portas de saída (Portas 2 e 3). Portanto, os parâmetros de transmissão idealmente devem estar próximos de -3 dB na frequência de projeto.
+    \item \textbf{Diferença de Fase (Quadratura)}: O principal atrativo deste dispositivo é a defasagem. Espera-se observar uma diferença de fase de exatamente 90 graus ($\pi/2$) entre os sinais que chegam às duas portas de saída.
+    \item \textbf{Casamento de Impedância (Return Loss)}: Espera-se que haja o mínimo de reflexão possível na porta de entrada, o que significa que o coeficiente de reflexão deve ser bastante atenuado (idealmente muito menor que -10 dB ou tendendo a zero na escala linear) na frequência central.
+    \item \textbf{Isolamento}: A quarta porta (Porta isolada) não deve receber potência idealmente. O resultado esperado é um alto isolamento (um valor muito baixo em dB) entre a porta de entrada e a porta isolada.
+    \item \textbf{Largura de Banda}: Discutir qual a faixa de frequências em que esses parâmetros (fase e divisão de potência) se mantêm dentro de uma margem aceitável, já que acopladores circulares têm respostas dependentes da frequência.
+\end{itemize}
+
+\newpage
+\bibliography{referencias}
+
+\end{document}

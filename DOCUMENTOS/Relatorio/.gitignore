@@ -1,0 +1,13 @@
+# 1. Ignora absolutamente tudo nesta subpasta
+*
+
+# 2. Abre exceção para não ignorar pastas (necessário para o Git entrar nelas)
+!*/
+
+# 3. Abre exceção para os arquivos que você quer manter
+!.gitignore
+!*.tex
+!*.jpg
+!*.jpeg
+!*.png
+!*.pdf
