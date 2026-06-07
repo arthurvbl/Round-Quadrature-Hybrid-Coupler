@@ -1,30 +1,76 @@
-; Top Design: "TF_alta_frequencia_lib:quadrature_hybrid_coupler_round_ideal:schematic"
+; Top Design: "TF_alta_frequencia_lib:quadrature_hybrid_coupler_round_with_taper_EM:schematic"
 ; Netlisted using Hierarchy Policy: "Standard"
 
-Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="TF_alta_frequencia_lib:quadrature_hybrid_coupler_round_ideal:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
-TLIN:TL1  N__0 N__1 Z=50.0 Ohm E=90 F=2.4 GHz 
-TLIN:TL2  N__1 N__8 Z=50/sqrt(2) Ohm E=90 F=2.4 GHz 
-TLIN:TL3  N__1 N__12 Z=50.0 Ohm E=90 F=2.4 GHz 
-TLIN:TL4  N__8 N__10 Z=50.0 Ohm E=90 F=2.4 GHz 
-TLIN:TL5  N__8 N__9 Z=50.0 Ohm E=90 F=2.4 GHz 
-TLIN:TL6  N__10 N__11 Z=50.0 Ohm E=90 F=2.4 GHz 
-TLIN:TL7  N__12 N__10 Z=50/sqrt(2) Ohm E=90 F=2.4 GHz 
-TLIN:TL8  N__14 N__12 Z=50.0 Ohm E=90 F=2.4 GHz 
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="TF_alta_frequencia_lib:quadrature_hybrid_coupler_round_with_taper_EM:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+; Library Name: TF_alta_frequencia_lib
+; Cell Name: quadrature_hybrid_coupler_round_with_taper
+; View Name: emModel
+define quadrature_hybrid_coupler_round_with_taper ( P1  P2  P3  P4  Ref=0 ) 
+parameters  Lqw_EM=62.82   Wqw_EM=1.857   Z0_EM=50   W0_EM=1.088   L0_EM=8.362   Rcurve_EM=9.998   Ltaper_EM=1  
+; MomCmpt model has node 0 as implicit reference. Ref node will be ignored and assumed to be grounded!
+em_data_name="TF_alta_frequencia_lib:quadrature_hybrid_coupler_round_with_taper:emModel"
+em_data_p0="Lqw_EM"
+em_data_v0=Lqw_EM
+em_data_p1="Wqw_EM"
+em_data_v1=Wqw_EM
+em_data_p2="Z0_EM"
+em_data_v2=Z0_EM
+em_data_p3="W0_EM"
+em_data_v3=W0_EM
+em_data_p4="L0_EM"
+em_data_v4=L0_EM
+em_data_p5="Rcurve_EM"
+em_data_v5=Rcurve_EM
+em_data_p6="Ltaper_EM"
+em_data_v6=Ltaper_EM
+MomCmpt:em_data  P1 P2 P3 P4 \
+    name=em_data_name \
+    paramFile="" \
+    modelFile="C:/Users/Gustavo/Documents/UNB/tiao/PF/Round-Quadrature-Hybrid-Coupler/ADS/TF_alta_frequencia_lib/quadrature_hybrid_coupler_round_with_taper/em%Model/model.ndx" \
+    p0="Lqw_EM" v0=Lqw_EM v0_Resolution=1e-05 \
+    p1="Wqw_EM" v1=Wqw_EM v1_Resolution=1e-05 \
+    p2="Z0_EM" v2=Z0_EM v2_Resolution=1e-05 \
+    p3="W0_EM" v3=W0_EM v3_Resolution=1e-05 \
+    p4="L0_EM" v4=L0_EM v4_Resolution=1e-05 \
+    p5="Rcurve_EM" v5=Rcurve_EM v5_Resolution=1e-05 \
+    p6="Ltaper_EM" v6=Ltaper_EM v6_Resolution=1e-05 \
+    ModelReuse=1 \
+    ModelType="MOMMW" \
+    ExtrapolationMode="linear" \
+    EnforcePassivity=-1
+end quadrature_hybrid_coupler_round_with_taper
+
+model MSub1 MSUB H=0.508 mm Er=3.550 Mur=1 Cond=1.0E+50 Hu=3.93701e+34 mil T=0.035 mm TanD=0.0021 Rough=0 mil DielectricLossModel=1 FreqForEpsrTanD=1.0 GHz LowFreqForTanD=1.0 kHz HighFreqForTanD=1.0 THz RoughnessModel=2 
+
+Z0=50
+Ltaper=1
+Rcurve=Lqw/(2*pi)
+W0=1.0878
+Wqw=1.8566
+L0=8.3618634
+Lqw=65
 S_Param:SP1 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 \
 SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
 
-SweepPlan: SP1_stim Start=0.1 GHz Stop=5 GHz Step=1 MHz 
+SweepPlan: SP1_stim Start=0.5 GHz Stop=4 GHz Step=1.0 MHz 
 
 OutputPlan:SP1_Output \
       Type="Output" \
       UseEquationNestLevel=yes \
       EquationNestLevel=2 \
       UseSavedEquationNestLevel=yes \
-      SavedEquationNestLevel=2
+      SavedEquationNestLevel=2 \
+      SavedEquationName[1]="L0" \
+      SavedEquationName[2]="Lqw" \
+      SavedEquationName[3]="Rcurve" \
+      SavedEquationName[4]="W0" \
+      SavedEquationName[5]="Wqw" \
+      SavedEquationName[6]="Z0"
 
 #load "python","LinearCollapse"
 Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
-Port:TermG1  N__0 0 Num=1 Z=50 Ohm Noise=yes 
-Port:TermG2  N__9 0 Num=2 Z=50 Ohm Noise=yes 
-Port:TermG3  N__11 0 Num=3 Z=50 Ohm Noise=yes 
-Port:TermG4  N__14 0 Num=4 Z=50 Ohm Noise=yes 
+Port:TermG4  N__23 0 Num=4 Z=Z0 Ohm Noise=yes 
+Port:TermG1  N__0 0 Num=1 Z=Z0 Ohm Noise=yes 
+Port:TermG2  N__1 0 Num=2 Z=Z0 Ohm Noise=yes 
+Port:TermG3  N__2 0 Num=3 Z=Z0 Ohm Noise=yes 
+quadrature_hybrid_coupler_round_with_taper:X2  N__0 N__1 N__2 N__23 Lqw_EM=Lqw Wqw_EM=Wqw Z0_EM=Z0 W0_EM=W0 L0_EM=L0 Rcurve_EM=Rcurve Ltaper_EM=Ltaper 

@@ -1,0 +1,14 @@
+<emDataViewOptions>
+  <version minor="2" major="1"/>
+  <Options portTerminalPinsNetlistMode="Shorted" symbolNetlistMode="All pins" extrapolationMode="Linear" enforcePassivity="DuringExtrapolation"/>
+  <cellParameters useInterpolation="no">
+    <parameters>
+      <cellParameter delta="5" name="Z0_EM" resolution="1e-05"/>
+      <cellParameter delta="1.1319" name="Rcurve_EM" resolution="1e-05"/>
+      <cellParameter delta="0.10489" name="W0_EM" resolution="1e-05"/>
+      <cellParameter delta="0.19" name="L0_EM" resolution="1e-05"/>
+      <cellParameter delta="0.18333" name="Wqw_EM" resolution="1e-05"/>
+      <cellParameter delta="7.11197" name="Lqw_EM" resolution="1e-05"/>
+    </parameters>
+  </cellParameters>
+</emDataViewOptions>

@@ -9,8 +9,8 @@
         <layer>2</layer>
         <purpose>-1</purpose>
         <point>
-          <x>-0.0092901516</x>
-          <y>0.0009249156</y>
+          <x>-0.0092785184</x>
+          <y>0.0009443466</y>
         </point>
       </shape>
     </layout>
@@ -23,8 +23,8 @@
         <layer>2</layer>
         <purpose>-1</purpose>
         <point>
-          <x>0.0105419652</x>
-          <y>0.020757007</y>
+          <x>0.0053815996</x>
+          <y>0.01560449</y>
         </point>
       </shape>
     </layout>
@@ -37,8 +37,8 @@
         <layer>2</layer>
         <purpose>-1</purpose>
         <point>
-          <x>0.0307550566</x>
-          <y>0.0005439156</y>
+          <x>0.0204339444</x>
+          <y>0.0005521452</y>
         </point>
       </shape>
     </layout>
@@ -51,8 +51,8 @@
         <layer>2</layer>
         <purpose>-1</purpose>
         <point>
-          <x>0.0109229398</x>
-          <y>-0.0192882012</y>
+          <x>0.0057738264</x>
+          <y>-0.0141079728</y>
         </point>
       </shape>
     </layout>

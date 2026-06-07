@@ -1,5 +1,5 @@
 jobName=EmPpMsgs
 jobType=emprep
-designName=TF_alta_frequencia_lib:quadrature_hybrid_coupler_round_no_taper:layout
+designName=TF_alta_frequencia_lib:quadrature_hybrid_coupler_round_with_taper:layout_hpeesofsim
 ruleFilePath=
 addInfo="EM preprocessor messages displayed as DRC errors"

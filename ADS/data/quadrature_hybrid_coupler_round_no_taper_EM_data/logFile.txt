@@ -1,0 +1,11 @@
+
+hpeesofsim (*) 530.shp Aug 11 2020, MINT version 5
+    (64-bit windows built: Wed Aug 12, 2020 02:42:05 +0000)
+
+
+SP SP1[1] <TF_alta_frequencia_lib:quadrature_hybrid_coupler_round_no_taper_EM:schematic>   freq=(500 MHz->4 GHz)
+
+
+Resource usage:
+  Total stopwatch time     =     0.39 seconds.
+

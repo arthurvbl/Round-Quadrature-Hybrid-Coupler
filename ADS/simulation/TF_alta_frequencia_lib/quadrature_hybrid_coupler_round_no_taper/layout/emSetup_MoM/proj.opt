@@ -1,7 +1,7 @@
 simulationMode 1;
 simulationTemperature 298.15;
-# simDir "C:\Users\arthu\OneDrive\Documentos\unb\alta_frequencia\TF_alta_frequencia\simulation\TF_alta_frequencia_lib\quadrature_hybrid_coupler_round_no_taper\layout\emSetup_MoM";
-# simTag "M260604185500";
+# simDir "C:\Users\Gustavo\Documents\UNB\tiao\PF\Round-Quadrature-Hybrid-Coupler\ADS\simulation\TF_alta_frequencia_lib\quadrature_hybrid_coupler_round_no_taper\layout\emSetup_MoM";
+# simTag "M260606233656";
 logFile "proj.log";
 processPriority Normal;
 mesh_reduction ON;
@@ -25,7 +25,7 @@ modelTypeStrip 3;
 modelTypeVia 3;
 SAVECURRENTSINFILE 0;
 SPARAM_OUTPUTFORMAT SMATRIXIO;
-DS_DIR "C:\Users\arthu\OneDrive\Documentos\unb\alta_frequencia\TF_alta_frequencia\data";
+DS_DIR "C:\Users\Gustavo\Documents\UNB\tiao\PF\Round-Quadrature-Hybrid-Coupler\ADS\data";
 DS_NAME "quadrature_hybrid_coupler_round_no_taper_MomUW";
 REUSEPREVIOUSRESULTS OFF;
 INCLUDEPORTSOLVER ON;

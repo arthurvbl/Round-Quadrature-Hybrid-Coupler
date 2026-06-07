@@ -1,13 +1,13 @@
 <EmSimSetup version="1.0">
   <MainWindow version="2.2">
     <SelectedTreeItemIndex>0</SelectedTreeItemIndex>
-    <selectedTreeItem>0,setup</selectedTreeItem>
+    <selectedTreeItem>0,unknown</selectedTreeItem>
     <simCalculationType>5</simCalculationType>
     <cosimCalculationType>0</cosimCalculationType>
     <CoSimulation version="2.0">
       <cosimViewName>emCosim</cosimViewName>
       <intermediateLibraryName>TF_alta_frequencia_lib</intermediateLibraryName>
-      <intermediateCellName>quadrature_hybrid_coupler_round_emCosim</intermediateCellName>
+      <intermediateCellName>quadrature_hybrid_coupler_round_with_taper_emCosim</intermediateCellName>
       <intermediateModelViewName>emModel</intermediateModelViewName>
       <cosimStoresOnlySParamData>True</cosimStoresOnlySParamData>
       <cosimIntermediateLayoutChoice>1</cosimIntermediateLayoutChoice>
@@ -413,7 +413,7 @@
       <SaveFieldsType>2</SaveFieldsType>
     </FemSimReuseVisualization>
     <MomLayout version="1.0">
-      <workspaceText>C:\Users\arthu\OneDrive\Documentos\unb\alta_frequencia\TF_alta_frequencia</workspaceText>
+      <workspaceText>C:\Users\Gustavo\Documents\UNB\tiao\PF\Round-Quadrature-Hybrid-Coupler\ADS</workspaceText>
       <libraryText>TF_alta_frequencia_lib</libraryText>
       <cellText>quadrature_hybrid_coupler_round_with_taper</cellText>
       <viewText>layout</viewText>
@@ -501,18 +501,6 @@
               <keyName>N__11</keyName>
               <MomSimOptMeshNetSpecMapData version="1.0">
                 <netName>N__11</netName>
-                <MeshDensityType>0</MeshDensityType>
-                <MeshDensity>0</MeshDensity>
-                <MeshDensityUnit></MeshDensityUnit>
-                <EdgeMeshType>0</EdgeMeshType>
-                <EdgeMeshEdgeWidth>0</EdgeMeshEdgeWidth>
-                <EdgeMeshEdgeWidthUnit></EdgeMeshEdgeWidthUnit>
-                <TLMeshType>0</TLMeshType>
-                <TLMeshCellsInWidth>0</TLMeshCellsInWidth>
-              </MomSimOptMeshNetSpecMapData>
-              <keyName>N__12</keyName>
-              <MomSimOptMeshNetSpecMapData version="1.0">
-                <netName>N__12</netName>
                 <MeshDensityType>0</MeshDensityType>
                 <MeshDensity>0</MeshDensity>
                 <MeshDensityUnit></MeshDensityUnit>
@@ -837,13 +825,6 @@
                 <ModelTypeForCurrentsThickConductor>0</ModelTypeForCurrentsThickConductor>
                 <ModelTypeForCurrentsVia>0</ModelTypeForCurrentsVia>
               </MomSimOptSubstrateNetSpecMapData>
-              <keyName>N__12</keyName>
-              <MomSimOptSubstrateNetSpecMapData version="1.0">
-                <netName>N__12</netName>
-                <MetalExpansion>0</MetalExpansion>
-                <ModelTypeForCurrentsThickConductor>0</ModelTypeForCurrentsThickConductor>
-                <ModelTypeForCurrentsVia>0</ModelTypeForCurrentsVia>
-              </MomSimOptSubstrateNetSpecMapData>
               <keyName>N__13</keyName>
               <MomSimOptSubstrateNetSpecMapData version="1.0">
                 <netName>N__13</netName>
@@ -1138,18 +1119,6 @@
             <keyName>N__11</keyName>
             <MomSimOptMeshNetSpecMapData version="1.0">
               <netName>N__11</netName>
-              <MeshDensityType>0</MeshDensityType>
-              <MeshDensity>0</MeshDensity>
-              <MeshDensityUnit></MeshDensityUnit>
-              <EdgeMeshType>0</EdgeMeshType>
-              <EdgeMeshEdgeWidth>0</EdgeMeshEdgeWidth>
-              <EdgeMeshEdgeWidthUnit></EdgeMeshEdgeWidthUnit>
-              <TLMeshType>0</TLMeshType>
-              <TLMeshCellsInWidth>0</TLMeshCellsInWidth>
-            </MomSimOptMeshNetSpecMapData>
-            <keyName>N__12</keyName>
-            <MomSimOptMeshNetSpecMapData version="1.0">
-              <netName>N__12</netName>
               <MeshDensityType>0</MeshDensityType>
               <MeshDensity>0</MeshDensity>
               <MeshDensityUnit></MeshDensityUnit>
@@ -1474,13 +1443,6 @@
               <ModelTypeForCurrentsThickConductor>0</ModelTypeForCurrentsThickConductor>
               <ModelTypeForCurrentsVia>0</ModelTypeForCurrentsVia>
             </MomSimOptSubstrateNetSpecMapData>
-            <keyName>N__12</keyName>
-            <MomSimOptSubstrateNetSpecMapData version="1.0">
-              <netName>N__12</netName>
-              <MetalExpansion>0</MetalExpansion>
-              <ModelTypeForCurrentsThickConductor>0</ModelTypeForCurrentsThickConductor>
-              <ModelTypeForCurrentsVia>0</ModelTypeForCurrentsVia>
-            </MomSimOptSubstrateNetSpecMapData>
             <keyName>N__13</keyName>
             <MomSimOptSubstrateNetSpecMapData version="1.0">
               <netName>N__13</netName>
@@ -1699,10 +1661,10 @@
     </MomOptions>
     <MomSimDataset version="2.0">
       <dataset_useCellName>True</dataset_useCellName>
-      <givenDatasetName>quadrature_hybrid_coupler_round</givenDatasetName>
+      <givenDatasetName>quadrature_hybrid_coupler_round_with_taper</givenDatasetName>
       <addDecoration>True</addDecoration>
       <dds_useCellName>True</dds_useCellName>
-      <givenDdsName>quadrature_hybrid_coupler_round</givenDdsName>
+      <givenDdsName>quadrature_hybrid_coupler_round_with_taper</givenDdsName>
       <useSimSetupViewName>False</useSimSetupViewName>
       <useSimType>True</useSimType>
       <useSimOptionsName>False</useSimOptionsName>
@@ -1772,14 +1734,14 @@
       </FreqPlanForOutput>
       <SimDataDisplay version="1.0">
         <dds_useCellName>True</dds_useCellName>
-        <dds_givenName>quadrature_hybrid_coupler_round</dds_givenName>
+        <dds_givenName>quadrature_hybrid_coupler_round_with_taper</dds_givenName>
         <openDisplay>True</openDisplay>
         <autoselectTemplate>True</autoselectTemplate>
         <templateName>S_Nport_P.ddt</templateName>
       </SimDataDisplay>
       <SimDataset version="1.0">
         <ds_useCellName>True</ds_useCellName>
-        <ds_givenName>quadrature_hybrid_coupler_round</ds_givenName>
+        <ds_givenName>quadrature_hybrid_coupler_round_with_taper</ds_givenName>
         <ds_addDecoration>True</ds_addDecoration>
         <ds_useSimSetupViewName>False</ds_useSimSetupViewName>
         <ds_useSimType>True</ds_useSimType>
@@ -2097,7 +2059,7 @@
                 <layerIdName>cond:drawing</layerIdName>
                 <shapeType>point</shapeType>
                 <points>
-                  <stdItem>-0.0189038992:-0.0115419378</stdItem>
+                  <stdItem>-0.0189040008:-0.0115420394</stdItem>
                 </points>
               </PinShapeDef>
             </shapes>
@@ -2135,7 +2097,7 @@
                 <layerIdName>cond:drawing</layerIdName>
                 <shapeType>point</shapeType>
                 <points>
-                  <stdItem>0.021991955:-0.0115419886</stdItem>
+                  <stdItem>0.0219920058:-0.0115420394</stdItem>
                 </points>
               </PinShapeDef>
             </shapes>
@@ -2154,7 +2116,7 @@
                 <layerIdName>cond:drawing</layerIdName>
                 <shapeType>point</shapeType>
                 <points>
-                  <stdItem>0.0015440406:-0.031989903</stdItem>
+                  <stdItem>0.0015439898:-0.0319900554</stdItem>
                 </points>
               </PinShapeDef>
             </shapes>
@@ -2232,7 +2194,7 @@
     <SimSetupOverview version="2.0">
       <setupType>0</setupType>
       <simulator>0</simulator>
-      <overview>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">p, li { white-space: pre-wrap; }&lt;/style>&lt;/head>&lt;body style=" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">EM Simulator:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Momentum simulation in microwave mode&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Layout:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Workspace: C:\Users\arthu\OneDrive\Documentos\unb\alta_frequencia\TF_alta_frequencia&lt;br>Library: TF_alta_frequencia_lib&lt;br>Cell: quadrature_hybrid_coupler_round&lt;br>View: layout&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Partitioning between EM and circuit:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">EM simulation/model of all items&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Substrate:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Substrate: RO4003C (defined in library: TF_alta_frequencia_lib)&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Ports:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">4 ports defined&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Frequency plan:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Adaptive from 0.75 GHz to 3.75 GHz (Npts: 50 (max))&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Output plan:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Template: Auto-select&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Dataset: quadrature_hybrid_coupler_round_MomUW&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Mom Simulation options:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Using local settings&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">All simulation options are initialized and ready for simulation.&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">EM simulation resources:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Simulation on host:Local&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">EM Model:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">EM Model: emModel&lt;br>          Auto-updated&lt;/span>&lt;/p>&lt;/body>&lt;/html></overview>
+      <overview>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">p, li { white-space: pre-wrap; }&lt;/style>&lt;/head>&lt;body style=" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">EM Simulator:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Momentum simulation in microwave mode&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Layout:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Workspace: C:\Users\Gustavo\Documents\UNB\tiao\PF\Round-Quadrature-Hybrid-Coupler\ADS&lt;br>Library: TF_alta_frequencia_lib&lt;br>Cell: quadrature_hybrid_coupler_round_with_taper&lt;br>View: layout&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Partitioning between EM and circuit:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">EM simulation/model of all items&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Substrate:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Substrate: RO4003C (defined in library: TF_alta_frequencia_lib)&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Ports:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">4 ports defined&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Frequency plan:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Adaptive from 0.75 GHz to 3.75 GHz (Npts: 50 (max))&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Output plan:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Template: Auto-select&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Dataset: quadrature_hybrid_coupler_round_with_taper_MomUW&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">Mom Simulation options:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Using local settings&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">All simulation options are initialized and ready for simulation.&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">EM simulation resources:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">Simulation on host:Local&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;text-decoration:underline">&lt;span style=" font-size:9pt; font-weight:bold">EM Model:&lt;/span>&lt;/p>&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:12px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:8pt;">EM Model: emModel&lt;br>          Auto-updated&lt;/span>&lt;/p>&lt;/body>&lt;/html></overview>
     </SimSetupOverview>
     <SimulationResources2 version="1.0">
       <resourceType>LocalRemote</resourceType>
