@@ -18,6 +18,8 @@
 \usepackage{siunitx}  
 % \usepackage{titlesec} % Comentado para evitar conflito com abntex2
 \usepackage{subcaption} % Pacote essencial para subfiguras
+\usepackage{hyperref}
+\usepackage{cleveref}
 
 % --- Configurações ABNT (Fonte e Espaçamento) ---
 \usepackage{helvet} 
@@ -71,8 +73,11 @@
 % --- FIM DA CAPA ---
 
 \newpage
-\clearpage
-\pagenumbering{arabic} % Começa a contagem de páginas após a capa
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\pagestyle{plain}
+
+% -----------------------------------------
 
 \section{Resumo}
 
@@ -143,13 +148,14 @@ A Tabela \ref{tab:cronograma} apresenta as etapas do projeto distribuídas ao lo
         \toprule
         \textbf{Atividades} & \textbf{S1} & \textbf{S2} & \textbf{S3} & \textbf{S4} & \textbf{S5} & \textbf{S6} & \textbf{S7} & \textbf{S8} & \textbf{S9} & \textbf{S10} & \textbf{S11} & \textbf{S12} \\
         \midrule
-        Revisão Bibliográfica teórica           & X & X &   &   &   &   &   &   &   &   &   &   \\
-        Cálculo analítico dos parâmetros        &   & X & X & X & X &   &   &   &   &   &   &   \\
-        Simulação eletromagnética               &   &   &   & X & X & X & X & X &   &   &   &   \\
-        Construção / Prototipagem               &   &   &   &   & X & X & X & X & X &   &   &   \\
-        Otimização e ajustes no layout          &   &   &   &   &   &   & X & X & X & X &   &   \\
-        Medição experimental em laboratório     &   &   &   &   &   &   &   &   & X & X & X &   \\
-        Análise de dados e escrita do relatório &   &   &   &   &   &   &   &   &   & X & X & X \\
+        Revisão Bibliográfica teórica           & $\bullet$ & $\bullet$  &   &   &   &   &   &   &   &   &   &   \\
+        Cálculo analítico dos parâmetros        &   &   & $\bullet$ & $\bullet$ &   &   &   &   &   &   &   &   \\
+        Design no software ADS                  &   &   &   &   & $\bullet$ & $\bullet$ & $\bullet$ &   &   &   &   &   \\
+        Simulação eletromagnética               &   &   &   &   &   &   & $\bullet$ & $\bullet$ &    &   &   &   \\
+        Otimização e ajustes no layout (ADS)          &   &   &   &   &   &   &   & $\bullet$ & $\bullet$ &  &   &   \\
+        Design no software HFSS                 &   &   &   &   &   &   &   &   & X & X &   &   \\
+        Simulação eletromagnética               &   &   &   &   &   &   &   &   &   & X & X &    \\
+        Análise de dados e escrita do relatório &   &   &   &   &   & X & X & X & X & X & X & X \\
         \bottomrule
     \end{tabular}%
     }
@@ -164,8 +170,81 @@ Para um Acoplador Híbrido de Quadratura (que geralmente tem 4 portas), os resul
     \item \textbf{Diferença de Fase (Quadratura)}: O principal atrativo deste dispositivo é a defasagem. Espera-se observar uma diferença de fase de exatamente 90 graus ($\pi/2$) entre os sinais que chegam às duas portas de saída.
     \item \textbf{Casamento de Impedância (Return Loss)}: Espera-se que haja o mínimo de reflexão possível na porta de entrada, o que significa que o coeficiente de reflexão deve ser bastante atenuado (idealmente muito menor que -10 dB ou tendendo a zero na escala linear) na frequência central.
     \item \textbf{Isolamento}: A quarta porta (Porta isolada) não deve receber potência idealmente. O resultado esperado é um alto isolamento (um valor muito baixo em dB) entre a porta de entrada e a porta isolada.
-    \item \textbf{Largura de Banda}: Discutir qual a faixa de frequências em que esses parâmetros (fase e divisão de potência) se mantêm dentro de uma margem aceitável, já que acopladores circulares têm respostas dependentes da frequência.
 \end{itemize}
+
+\section{Desenvolvimento}
+
+O desenvolvimento prático do trabalho foi dividido nas seguintes seções:
+\begin{itemize}
+    \item \textbf{\boldmath ADS:}
+    \begin{itemize}
+        \item Design de modelo de linhas de transmissão ideais.
+        \item Design de modelo de linhas de transmissão com perdas (microstrip).
+        \item Geração do Layout e simulação EM.
+        \item Otimização EM com parâmetros de varredura (Parameters Sweep).
+    \end{itemize}
+    \item \textbf{\boldmath HFSS:}
+    \begin{itemize}
+        \item Design do modelo.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Design no software ADS}
+
+\subsubsection{Design de modelo de linhas de transmissão ideais}
+
+O primeiro passo no desenvolvimento do acoplador é a criação do modelo ideal para a visualização dos valores de parâmetros S alvo. Para isso basta criar um esquemático e, com a utilização da biblioteca "TLines-Ideal", projetar o modelo do circuito visto na \cref{fig:sub_retangular}. No modelo ideal pode ser montado com o formato do acoplador quadrado, pois como estamos trabalhando com o modelo ideal isto se torna irrelevante. Logo, o esquemático criado é mostrado na \cref{fig:esquematico_ideal}.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.7\textwidth]{esquematico_ideal}
+\end{center}
+\caption{Esquemático do modelo de linhas de transmissão ideais do acoplador em quadratura.}\label{fig:esquematico_ideal}
+\end{figure}
+
+Por meio do esquemático criado, foi possível gerar os gráficos de parâmetros S por meio da ferramenta "Simulate", como visto na \cref{fig:grafico_ideal}. 
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{grafico_ideal}
+\end{center}
+\caption{Parâmetros S do modelo de linhas de transmissão ideais.}\label{fig:grafico_ideal}
+\end{figure}
+
+Com os resultados obtidos foi possível observar que, conforme previa a teoria, teriamos um divisão perfeitamente igual de potência para as portas 2 e 3 (considerando a porta 1 como entrada) com defasagem de 90°. Além disso, podemos notar que os casamento de cada porta é perfeito ($\Gamma = 0$) e existe um isolamento total da porta 4 com relação à porta 1.
+
+\subsubsection{Design de modelo de linhas de transmissão com perdas (microstrip)}
+
+A próxima etapa consiste no projeto do esquemático utilizando linhas de transmissão com perdas, sendo elas perdas ôhmicas e dielétricas. Logo, foi necessário escolher um substrato que atendesse as demandas de custo-benefício e desempenho. O substrato escolhido foi o modelo RO4003C da \textit{Rogers Corporation}, o qual provê uma constante dielétrica extremamente controlada, fazendo com que varie pouco. Isso é benéfico para o projeto pois o acoplador híbrido depende em um comprimento de quarto de onda ($\lambda/4$) preciso para atingir os valores esperados. Além disso, este substrato também contribui para a diminuição das perdas dielétricas, com uma tangente de perdas de $tan \delta = 0,0021$.
+
+Para a montagem utilizamos os componentes da biblioteca "TLines-Microstrip", que contemplam vários tipos de linhas de transmissão, com diversos formatos. Para criarmos o modelo do acoplador circular foi necessário utilizar os componentes de curvas circulares. O esquemático projetado é mostrado na \cref{fig:esquematico_com_perdas}.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.7\textwidth]{esquematico_com_perdas}
+\end{center}
+\caption{Esquemático do acoplador utilizando componentes com perdas.}\label{fig:esquematico_com_perdas}
+\end{figure}
+
+Para a criação deste esquemático foi visto necessário o uso da ferramenta do "LineCalc" para a obtenção das dimensões de cada trecho da trilha (comprimento L e largura W), considerando os valores referentes de impedância e comprimento de onda das mesmas. Como visto na \cref{fig:linecalc}.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.7\textwidth]{linecalc}
+\end{center}
+\caption{Ferramenta do LineCalc.}\label{fig:linecalc}
+\end{figure}
+
+Nota-se o uso do elemento "MTAPER", o qual foi utilizado para suavizar transições abruptas de impedância, como de $Z_0$ para $Z_{QW}$.
+
+
+
+
+
+
+
+
+
 
 \newpage
 \bibliography{referencias}

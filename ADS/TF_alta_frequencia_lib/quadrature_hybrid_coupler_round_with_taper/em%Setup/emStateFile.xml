@@ -2059,7 +2059,7 @@
                 <layerIdName>cond:drawing</layerIdName>
                 <shapeType>point</shapeType>
                 <points>
-                  <stdItem>-0.0189040008:-0.0115420394</stdItem>
+                  <stdItem>-0.0192508124:-0.012583033</stdItem>
                 </points>
               </PinShapeDef>
             </shapes>
@@ -2078,7 +2078,7 @@
                 <layerIdName>cond:drawing</layerIdName>
                 <shapeType>point</shapeType>
                 <points>
-                  <stdItem>0.0015440152:0.0089059512</stdItem>
+                  <stdItem>0.0015439136:0.0082116676</stdItem>
                 </points>
               </PinShapeDef>
             </shapes>
@@ -2097,7 +2097,7 @@
                 <layerIdName>cond:drawing</layerIdName>
                 <shapeType>point</shapeType>
                 <points>
-                  <stdItem>0.0219920058:-0.0115420394</stdItem>
+                  <stdItem>0.0223386142:-0.012583033</stdItem>
                 </points>
               </PinShapeDef>
             </shapes>
@@ -2116,7 +2116,7 @@
                 <layerIdName>cond:drawing</layerIdName>
                 <shapeType>point</shapeType>
                 <points>
-                  <stdItem>0.0015439898:-0.0319900554</stdItem>
+                  <stdItem>0.0015438882:-0.033377759</stdItem>
                 </points>
               </PinShapeDef>
             </shapes>

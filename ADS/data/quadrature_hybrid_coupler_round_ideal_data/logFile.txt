@@ -7,5 +7,5 @@ SP SP1[1] <TF_alta_frequencia_lib:quadrature_hybrid_coupler_round_ideal:schemati
 
 
 Resource usage:
-  Total stopwatch time     =     0.55 seconds.
+  Total stopwatch time     =     0.52 seconds.
 
