@@ -127,7 +127,7 @@ Inicialmente, será realizado um estudo aprofundado para a compreensão teórica
 Esta etapa contemplará a análise matemática do \textit{Quadrature Hybrid Coupler} em sua topologia circular, aplicando-se a Análise de Modos Par e Ímpar (\textit{Even-Odd Mode Analysis}) para o equacionamento analítico do dispositivo. Esse estudo culminará no desenvolvimento da Matriz de Espalhamento ($[S]$), que servirá como modelo ideal para a caracterização do funcionamento do circuito.
 
 Para a fase de dimensionamento físico e sintonia, serão utilizadas as ferramentas de simulação do \textit{software Keysight Advanced Design System (ADS)}. O procedimento iniciará com simulações no nível esquemático utilizando modelos ideais de linhas de transmissão, evoluindo progressivamente para a modelagem em tecnologia de microfita. 
-Nesta transição, serão inseridas as propriedades físicas reais do substrato dielétrico a ser utilizado na fabricação (como constante dielétrica $\varepsilon_r$, tangente de perdas $\tan \delta$ e espessura da placa). 
+Nesta transição, serão inseridas as propriedades físicas reais do substrato a ser utilizado na fabricação (como constante dielétrica $\varepsilon_r$, tangente de perdas $\tan \delta$ e espessura da placa). 
 
 Com o \textit{layout} gerado, será executada a simulação eletromagnética (EM) no ADS para computar os efeitos parasitas e as descontinuidades geométricas das trilhas e curvas. O foco desta etapa será a otimização paramétrica para garantir que os indicadores de desempenho, como o casamento de impedância ($S_{11}$), o acoplamento com divisão de potência equitativa ($S_{21}$ e $S_{31}$), a isolação entre portas ($S_{41}$) e o desfasamento exato de 90 graus, atendam às especificações dentro da largura de banda de operação desejada.
 
@@ -215,7 +215,31 @@ Com os resultados obtidos foi possível observar que, conforme previa a teoria, 
 
 \subsubsection{Design de modelo de linhas de transmissão com perdas (microstrip)}
 
-A próxima etapa consiste no projeto do esquemático utilizando linhas de transmissão com perdas, sendo elas perdas ôhmicas e dielétricas. Logo, foi necessário escolher um substrato que atendesse as demandas de custo-benefício e desempenho. O substrato escolhido foi o modelo RO4003C da \textit{Rogers Corporation}, o qual provê uma constante dielétrica extremamente controlada, fazendo com que varie pouco. Isso é benéfico para o projeto pois o acoplador híbrido depende em um comprimento de quarto de onda ($\lambda/4$) preciso para atingir os valores esperados. Além disso, este substrato também contribui para a diminuição das perdas dielétricas, com uma tangente de perdas de $tan \delta = 0,0021$.
+A próxima etapa consiste no projeto do esquemático utilizando linhas de transmissão com perdas, sendo elas perdas ôhmicas e dielétricas. Logo, foi necessário escolher um substrato que atendesse as demandas de custo-benefício e desempenho. 
+
+O substrato escolhido foi o modelo RO4003C da \textit{Rogers Corporation}, o qual provê uma constante dielétrica extremamente controlada, fazendo com que varie pouco. Isso é benéfico para o projeto pois o acoplador híbrido depende em um comprimento de quarto de onda ($\lambda/4$) preciso para atingir os valores esperados. Além disso, este substrato também contribui para a diminuição das perdas dielétricas, com uma baixa tangente de perdas. 
+
+\begin{table}[H]
+    \centering
+    \caption{Substrato RO4003C}
+    \label{tab:substrato}
+    \vspace{0.3cm}    % Espaço entre o título e a tabela
+    \renewcommand{\arraystretch}{1.5} % Aumenta o espaçamento das linhas
+    \begin{tabular}{|l|c|}    % Define o alinhamento das colunas (l, c, r) e adiciona uma linha vertical entre elas
+    \hline    % cria linha horizontal
+    Constante Dielétrica relativa & $\varepsilon = 3,55$ \\
+    \hline    % cria linha horizontal
+    Tangente de Perdas Dielétricas & $tan \delta = 0,0021$ \\
+    \hline    % cria linha horizontal
+    Substrate thickness & $0.508 mm$ \\
+    \hline
+    Conductor thickness & $0.035 mm$ \\
+    \hline
+    % ...
+    \end{tabular}
+ 
+    \vspace{0.4cm} 
+\end{table}
 
 Para a montagem utilizamos os componentes da biblioteca "TLines-Microstrip", que contemplam vários tipos de linhas de transmissão, com diversos formatos. Para criarmos o modelo do acoplador circular foi necessário utilizar os componentes de curvas circulares. O esquemático projetado é mostrado na \cref{fig:esquematico_com_perdas}.
 
@@ -235,16 +259,69 @@ Para a criação deste esquemático foi visto necessário o uso da ferramenta do
 \caption{Ferramenta do LineCalc.}\label{fig:linecalc}
 \end{figure}
 
-Nota-se o uso do elemento "MTAPER", o qual foi utilizado para suavizar transições abruptas de impedância, como de $Z_0$ para $Z_{QW}$.
+Depois foi feito uma simulação de 0.75GHz até 3.75GHz com passos de 1MHz, o que possibilitou que pudéssemos visualizar a frequência desejada no centro do gráfico. Como esperado os valores para os parâmetros S não foram bons de início, logo foi necessário realizar a otimização utilizando a ferramenta "Tuning", que possibilita mudar os valores das variáveis selecionadas manualmente, observando o seu impacto nos valores dos parâmetros S. Foi selecionado as variáveis "Ltaper" (comprimento dos tapers), "W0" (espessura das trilhas conectadas às portas), "L0" (comprimento das trilhas conectadas às portas), Wqw (espessura das trilhas com impedância $Z_{qw}$) e Lqw (comprimento $\lambda/4$), como visto na \cref{fig:tuning}.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.7\textwidth]{tuning}
+\end{center}
+\caption{Ferramenta de otimização "Tuning"}\label{fig:tuning}
+\end{figure}
+
+Com os valores das variáveis otimizados, foram obtidos valores mais próximos ao modelo ideal para os parâmetros S. Na \cref{fig:grafico_com_perdas_with_taper}, é possível observar que, similarmente ao modelo ideal, cada porta tem um coeficiente de reflexão (Return Loss) excelente, atingindo $\approx -50 dB$. Adicionalmente, podemos observar também uma divisão de potência muito próxima entre os parâmetros de transmissão ($S_{31}$ e $S_{21}$), além de uma diferença de fase entre as portas 2 e 3 de $\approx 90$°. Por último, nota-se um ótimo valor de bloqueio da transmissão para a porta isolada ($S_{41} \approx -42dB$).
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{grafico_com_perdas_with_taper}
+\end{center}
+\caption{Parâmetros S do modelo de linhas de transmissão com perdas. }\label{fig:grafico_com_perdas_with_taper}
+\end{figure}
 
 
 
+\subsubsection{Geração do Layout e simulação EM}
 
+Realizado o esquemático, podemos gerar um layout utilizando a ferramenta "Generate/Update Layout" a partir dele, que representa o arranjo físico do circuito, como mostrado na \cref{fig:layout_with_taper}.
 
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{layout_with_taper}
+\end{center}
+\caption{Layout do acoplador circular.}\label{fig:layout_with_taper}
+\end{figure}
 
+Nota-se o uso do elemento "MTAPER", o qual foi utilizado para suavizar transições abruptas entre impedâncias, como de $Z_0$ para $Z_{QW}$, atenuando os efeitos de bordas nas quinas que, consequentemente, acaba reduzindo o coeficiente de reflexão em cada transição, como visto em \cref{fig:taper}.
 
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{taper}
+\end{center}
+\caption{Componente Taper pare diminuir os efeitos de borda.}\label{fig:taper}
+\end{figure}
 
+Com o layout gerado, o próximo passo é configurar o dielétrico utilizando a ferramenta "Substrate Editor". De acordo com a \cref{tab:substrato}, podemos preencher os parâmetros do substrato conforme foi feito no esquemático anteriormente.
 
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.7\textwidth]{substrato_configuracao}
+\end{center}
+\caption{Configuração do substrato no Layout.}\label{fig:substrato_configuracao}
+\end{figure}
+
+Configurado o substrato, podemos partir para as configurações da simulação EM. Nessa seção, pode ser adicionado o intervalo de simulação e referenciar o substrato criado. Finalizado o setup, podemos então realizar a simulação do modelo com perdas, agora considerando os efeitos eletromagnéticos.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{grafico_EM_with_taper_ruim}
+\end{center}
+\caption{Parâmetros S do modelo de linhas de transmissão com perdas eletromagnéticas.}\label{fig:grafico_EM_with_taper_ruim}
+\end{figure}
+
+Analisando \cref{fig:grafico_EM_with_taper_ruim}, é possível observar que os resultados, embora satisfatórios, apresentam algumas diferenças quando comparados com o esquemático, já que agora são consideradas condições reais do circuito. Os valores mais satisfatórios são encontados em frequências diferentes da de interesse, por conta das perdas causadas pelos efeitos EM. 
+
+\subsubsection{Otimização EM com parâmetros de varredura (Parameters Sweep)}
+
+Mesmo com valores bons, ainda é possível realizar uma otimização para evoluir os parâmetros S utilizando parâmetros de varredura.
 
 \newpage
 \bibliography{referencias}
