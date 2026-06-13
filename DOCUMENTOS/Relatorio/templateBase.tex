@@ -189,6 +189,45 @@ O desenvolvimento prático do trabalho foi dividido nas seguintes seções:
     \end{itemize}
 \end{itemize}
 
+\subsection{Fundamentação teórica}
+\label{sec:teoria_impedancia}
+
+Antes da análise dos resultados obtidos, é necessáirio entender primeiramente a teoria por trás do funcionamento do acoplador híbrido. O circuito baseia-se no princípio da superposição geométrica e elétrica, o qual é resolvido através da Análise de Modos Par e Ímpar. Devido à simetria perfeita da topologia de quatro portas, a estrutura pode ser dividida ao longo de seu eixo de simetria vertical. A excitação das portas é então decomposta em dois modos distintos, permitindo a análise de um "meio-circuito" simplificado.
+
+No plano de simetria, as linhas de transmissão horizontais permanecem intactas, enquanto as linhas verticais, originalmente com comprimento elétrico de $\lambda/4$, são seccionadas ao meio, resultando em \textit{stubs} de comprimento $\lambda/8$.
+
+\subsubsection{Análise de modo par}
+No modo par, excitações de mesma amplitude e fase são aplicadas simultaneamente às portas simétricas, como mostra a \cref{fig:even_mode}. Isso força a corrente no eixo de simetria a ser nula, criando um circuito aberto virtual.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.45\textwidth]{even_mode}
+\end{center}
+\caption{Acoplador em modo par.}\label{fig:even_mode}
+\end{figure}
+
+A admitância de entrada de um \textit{stub} em aberto de comprimento $\lambda/8$ ($45^{\circ}$) é dada por $Y_{in} = j Y_0 \tan(45^{\circ})$. Logo, a admitância dos \textit{stubs} no modo par assume o valor:
+
+\begin{equation}
+    Y_{par} = j Y_s
+\end{equation}
+
+\subsubsection{Análise de modo ímpar}
+No modo ímpar, aplicam-se excitações com defasagem de $180^{\circ}$, como é possível identificar na \cref{fig:odd_mode}. A tensão no plano de simetria torna-se identicamente nula, criando um curto-circuito virtual para o terra. 
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.45\textwidth]{odd_mode}
+\end{center}
+\caption{Acoplador em modo ímpar.}\label{fig:odd_mode}
+\end{figure}
+
+A admitância de um \textit{stub} em curto de comprimento $\lambda/8$ é $Y_{in} = -j Y_0 \cot(45^{\circ})$, resultando em:
+
+\begin{equation}
+    Y_{\text{ímpar}} = -j Y_s
+\end{equation}
+
 \subsection{Design no software ADS}
 
 \subsubsection{Design de modelo de linhas de transmissão ideais}
