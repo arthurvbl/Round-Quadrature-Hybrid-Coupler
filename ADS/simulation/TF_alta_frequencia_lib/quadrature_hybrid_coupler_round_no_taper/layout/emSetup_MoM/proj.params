@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<parameters>
-    <parameter name="Z0_EM" value="50"/>
-    <parameter name="Rcurve_EM" value="11.319047032 "/>
-    <parameter name="W0_EM" value="1.0489"/>
-    <parameter name="L0_EM" value="1.9"/>
-    <parameter name="Wqw_EM" value="1.8333"/>
-    <parameter name="Lqw_EM" value="71.11967 "/>
-</parameters>

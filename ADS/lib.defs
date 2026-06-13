@@ -1,3 +1,0 @@
-INCLUDE $HPEESOF_DIR/oalibs/analog_rf.defs
-DEFINE TF_alta_frequencia_lib TF_alta_frequencia_lib
-ASSIGN TF_alta_frequencia_lib libMode shared
