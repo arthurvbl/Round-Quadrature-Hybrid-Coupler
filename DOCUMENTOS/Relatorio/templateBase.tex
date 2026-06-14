@@ -321,7 +321,52 @@ Analisando \cref{fig:grafico_EM_with_taper_ruim}, é possível observar que os r
 
 \subsubsection{Otimização EM com parâmetros de varredura (Parameters Sweep)}
 
-Mesmo com valores bons, ainda é possível realizar uma otimização para evoluir os parâmetros S utilizando parâmetros de varredura.
+Mesmo com valores bons, ainda é possível realizar uma otimização para evoluir os parâmetros S utilizando parâmetros de varredura. Para utilizar o parâmetros de varredura, é necessário criar um symbol do layout criado.
+
+Para fazer isto, o primeiro passo foi criar novos parâmetros no layout com os mesmos valores das variáveis do esquemático, e depois colocar estes parâmetros em cada trecho de trilha do nosso design. Isto é necessário para quando for criado o symbol, ele atribuir estes parâmetros editáveis em suas dimensões. 
+
+Com o symbol criado, basta que dupliquemos nosso esquemático original e, na cópia, substituírmos todos os componentes por este symbol, importando ele no esquemático. Colocamos as portas conectadas diretamente no symbol e depois adicionamos o "Parameters Sweep", através da biblioteca "Simulation-S\_Param".
+O resultado desta montagem é exibida na \cref{fig:esquematico_EM_with_taper}.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.7\textwidth]{esquematico_EM_with_taper}
+\end{center}
+\caption{Esquemático utilizando o symbol extraído do layout.}\label{fig:esquematico_EM_with_taper}
+\end{figure}
+
+Para a otimização através de parâmetros de varredura, foi necessário fazer uma série de varreduras com diversas variáveis. Para começar, foi realizada a varredura utilizando a variável Wqw (largura das trilhas de impedâcia $Z_0/\sqrt(2)$) até conseguir os melhores parâmetros S. Logo em seguida, utilizamos a varredura para a variável Lqw (comprimento das trilhas com impedância $Z_0/\sqrt(2)$) para dar um ajuste fino final, como visto na \cref{fig:grafico_sweep_EM_with_taper1}.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{grafico_sweep_EM_with_taper1}
+\end{center}
+\caption{Varredura dos parâmetros de Lqw.}\label{fig:grafico_sweep_EM_with_taper1}
+\end{figure}
+
+Ao realizar várias simulações de varredura com diversos valores, foi possível chegar em duas possibilidades interessantes. Nós poderíamos optar por um valor de $S_{11}$ muito baixo, mas como consequência, teríamos uma discrepância maior entre os parâmetros $S_{21}$ e $S_{31}$, ou seja, o sinal seria dividido de forma desigual.
+A outra possibilidade seria deixar a divisão de potência o mais precisa possível ($S_{21} \approx S_{31} \approx -3dB$), mantendo um valor de Return Loss baixo para as portas de entrada.
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=0.7\textwidth]{grafico_EM_with_taper}
+\end{center}
+\caption{Parâmetros S do modelo de linhas de transmissão com perdas eletromagnéticas após a otimização utilizando parâmetros de varredura.}\label{fig:grafico_EM_with_taper}
+\end{figure}
+
+Com muita análise e otimização, chegou-se a conclusão que seria melhor manter valores de $S_{21}$ e $S_{31}$ menos distíntos possível ($S_{21} \approx S_{31} \approx -3dB$), mas tendo em vista também um valor de $S_{11} \lessapprox -30dB$ (reflexão $\Gamma \approx 0$). Esta foi a decisão tomada pois, quando se tinha um valor muito menor para $S_{11}$, os valores de $S_{21}$ e $S_{31}$ começavam a se distanciar bastante, e faria com que uma porta de saída recebesse mais potência do que a outra, o que não é esperado. O resultado desta análise resultou no gráfico mostrado na \cref{fig:grafico_EM_with_taper}
+
+
+\subsection{Design no software Ansys HFSS}
+
+
+\section{Conclusão}
+
+Neste laboratório, foi possível realizar com excelência, um bom design para o acoplador híbrido circular de 2,4GHz. Conseguimos extrair ótimos valores para os parâmetros S, tanto para as perdas de retorno, para transferência e divisão de potência com a devida defasagem, e por último, um isolamento perfeito da porta restante. 
+
+Este projeto teve uma função muito importante para a compreensão e entendimento do funcionamento de placas de circuito impresso em altas frequências, onde são necessários os devidos cuidados quanto as perdas ôhmicas e dielétricas. 
+
+
 
 \newpage
 \bibliography{referencias}
